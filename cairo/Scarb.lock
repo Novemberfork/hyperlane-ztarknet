@@ -3,35 +3,45 @@ version = 1
 
 [[package]]
 name = "alexandria_bytes"
-version = "0.4.0"
+version = "0.6.2"
 source = "registry+https://scarbs.xyz/"
-checksum = "sha256:59ef1ddc05d533f7e189c29090ec287e487572b2bdd1e7977720518c8ad42d98"
+checksum = "sha256:c09087b8b6d2f49ea1719cc780fa2901852879258ac2a55190187ed5b9e8488e"
 dependencies = [
  "alexandria_data_structures",
  "alexandria_math",
+ "snforge_std",
 ]
 
 [[package]]
 name = "alexandria_data_structures"
-version = "0.4.0"
+version = "0.6.2"
 source = "registry+https://scarbs.xyz/"
-checksum = "sha256:72bdee057923061f6719c82ac9d92c9c9bb39f3fbb9c369f64aa9e6d5b0b2425"
+checksum = "sha256:74cf0a36da91032e1ca5a65a0ce1349b1fcd8623a78f9afa3498fa58858491e1"
+dependencies = [
+ "snforge_std",
+]
 
 [[package]]
 name = "alexandria_math"
-version = "0.4.0"
+version = "0.6.2"
 source = "registry+https://scarbs.xyz/"
-checksum = "sha256:0ad256055661ed5b29ccef7bddbb44136995641cf537a6b259b94b6b6df14133"
+checksum = "sha256:b17fd1964c054d8e8a3fde2ee7dfecd5f318767f0bced764a6fa887271432f76"
+dependencies = [
+ "snforge_std",
+]
 
 [[package]]
 name = "alexandria_storage"
-version = "0.4.0"
+version = "0.6.2"
 source = "registry+https://scarbs.xyz/"
-checksum = "sha256:66df98d459d637273121baad2fe8615c29a7c5d3db2a34b4ce7c3555ebf24725"
+checksum = "sha256:2dc3fced9a8c07ea0b7d110fce5662d2fedfb6dff38b020dc43db81d2fbf785c"
+dependencies = [
+ "snforge_std",
+]
 
 [[package]]
 name = "contracts"
-version = "0.0.6"
+version = "0.0.1"
 dependencies = [
  "alexandria_bytes",
  "alexandria_data_structures",
@@ -44,7 +54,7 @@ dependencies = [
 
 [[package]]
 name = "mocks"
-version = "0.0.6"
+version = "0.0.1"
 dependencies = [
  "alexandria_bytes",
  "alexandria_data_structures",
@@ -175,15 +185,15 @@ checksum = "sha256:44f32d242af1e43982decc49c563e613a9b67ade552f5c3d5cde504e92f74
 
 [[package]]
 name = "snforge_scarb_plugin"
-version = "0.38.3"
+version = "0.49.0"
 source = "registry+https://scarbs.xyz/"
-checksum = "sha256:0cd914b547acd96b4cad99a78e95c0eda001d0c280da4969b2161e286079cf46"
+checksum = "sha256:903150f0e9542e4277d417029eea4c03af0db398b581f9f7ae3ebbdac9afc657"
 
 [[package]]
 name = "snforge_std"
-version = "0.38.3"
+version = "0.49.0"
 source = "registry+https://scarbs.xyz/"
-checksum = "sha256:d376526fbbe22535ad89ed630b11d6e209f22c50168de6c6430c0591c81c3174"
+checksum = "sha256:73d73653cc4356ec51b92a6bec9d8385b20318170c2f2ade7891e5185a0e7e64"
 dependencies = [
  "snforge_scarb_plugin",
 ]
