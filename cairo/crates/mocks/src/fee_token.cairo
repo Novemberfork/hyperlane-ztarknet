@@ -26,4 +26,8 @@ pub mod mock_fee_token {
         self.erc20.initializer("FeeToken", "FT");
         self.erc20.mint(recipient, initial_supply);
     }
+
+    impl ERC20ImmutableConfigImpl of ERC20Component::ImmutableConfig {
+        const DECIMALS: u8 = 6;
+    }
 }

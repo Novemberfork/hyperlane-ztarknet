@@ -13,10 +13,11 @@ alexandria_storage.workspace = true
 alexandria_data_structures.workspace = true
 assert_macros.workspace = true
 openzeppelin.workspace = true
-mocks = {path = "../mocks"}
+mocks = { path = "../mocks" }
 
 [dev-dependencies]
 snforge_std.workspace = true
+cairo_test = "2.12.2"
 
 [tool]
 fmt.workspace = true

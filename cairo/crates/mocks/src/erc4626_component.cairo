@@ -7,16 +7,17 @@ use starknet::ContractAddress;
 pub mod ERC4626Component {
     use core::integer::BoundedInt;
     use openzeppelin::introspection::interface::{ISRC5Dispatcher, ISRC5DispatcherTrait};
-    use openzeppelin::introspection::src5::{
-        SRC5Component, SRC5Component::InternalTrait as SRC5INternalTrait, SRC5Component::SRC5Impl,
+    use openzeppelin::introspection::src5::SRC5Component;
+    use openzeppelin::introspection::src5::SRC5Component::{
+        InternalTrait as SRC5INternalTrait, SRC5Impl,
     };
-    use openzeppelin::token::erc20::ERC20Component::InternalTrait as ERC20InternalTrait;
+    use openzeppelin::token::erc20::ERC20Component::{
+        Errors as ERC20Errors, InternalTrait as ERC20InternalTrait,
+    };
     use openzeppelin::token::erc20::interface::{
         ERC20ABIDispatcher, ERC20ABIDispatcherTrait, IERC20, IERC20Metadata,
     };
-    use openzeppelin::token::erc20::{
-        ERC20Component, ERC20Component::Errors as ERC20Errors, ERC20HooksEmptyImpl,
-    };
+    use openzeppelin::token::erc20::{ERC20Component, ERC20HooksEmptyImpl};
     use starknet::storage::{
         Map, StorageMapReadAccess, StorageMapWriteAccess, StoragePointerReadAccess,
         StoragePointerWriteAccess,
@@ -102,6 +103,10 @@ pub mod ERC4626Component {
             assets: u256,
             shares: u256,
         );
+    }
+
+    impl ERC20ImmutableConfigImpl of ERC20Component::ImmutableConfig {
+        const DECIMALS: u8 = 6;
     }
 
     #[embeddable_as(ERC4626Impl)]

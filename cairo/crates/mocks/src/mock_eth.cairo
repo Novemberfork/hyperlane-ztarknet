@@ -9,8 +9,7 @@ pub trait MockEth<TContractState> {
 #[starknet::contract]
 mod Ether {
     use openzeppelin::access::ownable::OwnableComponent;
-    use openzeppelin::token::erc20::ERC20Component;
-    use openzeppelin::token::erc20::ERC20HooksEmptyImpl;
+    use openzeppelin::token::erc20::{ERC20Component, ERC20HooksEmptyImpl};
     use starknet::ContractAddress;
 
     component!(path: ERC20Component, storage: erc20, event: ERC20Event);
@@ -39,6 +38,10 @@ mod Ether {
         ERC20Event: ERC20Component::Event,
         #[flat]
         OwnableEvent: OwnableComponent::Event,
+    }
+
+    impl ERC20ImmutableConfigImpl of ERC20Component::ImmutableConfig {
+        const DECIMALS: u8 = 6;
     }
 
     #[constructor]

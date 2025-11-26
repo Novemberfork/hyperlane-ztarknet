@@ -12,7 +12,7 @@ pub trait IERC4626YieldSharing<TContractState> {
 mod ERC4626YieldSharingMock {
     use contracts::libs::math;
     use core::integer::BoundedInt;
-    use openzeppelin::access::ownable::{OwnableComponent};
+    use openzeppelin::access::ownable::OwnableComponent;
     use openzeppelin::introspection::src5::SRC5Component;
     use openzeppelin::token::erc20::interface::{ERC20ABIDispatcher, ERC20ABIDispatcherTrait};
     use openzeppelin::token::erc20::{ERC20Component, ERC20HooksEmptyImpl};
@@ -109,6 +109,10 @@ mod ERC4626YieldSharingMock {
         self.ERC4626_underlying_decimals.write(decimals);
         self.fee.write(initial_fee);
         self.ownable.initializer(get_caller_address());
+    }
+
+    impl ERC20ImmutableConfigImpl of ERC20Component::ImmutableConfig {
+        const DECIMALS: u8 = 6;
     }
 
     #[abi(embed_v0)]

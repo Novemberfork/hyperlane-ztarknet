@@ -17,6 +17,7 @@ token = { path = "../token" }
 
 [dev-dependencies]
 snforge_std.workspace = true
+cairo_test = "2.12.2"
 
 [tool]
 fmt.workspace = true
